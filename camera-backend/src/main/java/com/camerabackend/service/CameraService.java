@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.camerabackend.entity.Camera;
 import com.camerabackend.repository.CameraRepository;
 
+
 @Service
 public class CameraService {
 	
@@ -36,7 +37,7 @@ public class CameraService {
 	//Update the camera.
 	public Camera updateCamera(Camera camera,int id) {
 		Camera cam = null;
-		cam =  cameraRepository.getById(id);
+		cam =  cameraRepository.findById(id);
 		if(cam != null) {
 			cam.setCameraName(camera.getCameraName());
 			cam.setAssignedTo(camera.getAssignedTo());
@@ -48,7 +49,7 @@ public class CameraService {
 	//Delete camera
 	public Camera deleteCamera(int id) {
 		Camera cam = null;
-		cam =  cameraRepository.getById(id);
+		cam =  cameraRepository.findById(id);
 		cameraRepository.delete(cam);
 		return cam;
 	}
